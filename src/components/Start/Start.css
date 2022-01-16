@@ -1,0 +1,78 @@
+.start__conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+    width: 1200px;
+    margin: 0 auto;
+    font-family: 'Southbank Sans';
+    font-weight: 400;
+}
+
+.start__title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+}
+
+.start__items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 68px;
+}
+
+.start__item {
+    width: 400px;
+    height: 168px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start__circle {
+    width: 64px;
+    height: 64px;
+    font-size: 32px;
+    color: #118c27;
+    border-radius: 50%;
+    border: 2px solid #118c27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start__arrow {
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyNiAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xIDEwSDIyLjg1NzFNMTUuMTQyOSAxTDI0LjE0MjkgMTBMMTUuMTQyOSAxOSIgc3Ryb2tlPSIjMTE4QzI3IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K') 50% no-repeat;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    margin-top: 20px;
+}
+
+.item__title {
+    margin: 24px 0 0 0;
+    text-align: center;
+}
+
+.item__subtitle {
+    margin: 4px 0 0 0;
+    max-width: 369px;
+    text-align: center;
+}
+
+.start__button {
+    margin-top: 50px;
+    width: 165px;
+    height: 52px;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #148f2a;
+    border: none;
+}
+
+.start__button:hover {
+    cursor: pointer;
+    transition-duration: 0.2s, 0.2s;
+    background-color: #18762a;
+}

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Southbank Sans';
+    src: url('./fonts/SBSansUI-Light.otf');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Southbank Sans';
+    src: url('./fonts/SBSansText-Semibold.otf');
+    font-style: normal;
+    font-weight: 600;
+}
