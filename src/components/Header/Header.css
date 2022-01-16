@@ -1,0 +1,134 @@
+.header__conteiner {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0 41px;
+    font-family: 'Southbank Sans',OpenSans,Helvetica;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.header__title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.header__subtitle {
+    margin: 10px 0 0 0;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.41em;
+}
+
+.header__box {
+    display: flex;
+    margin-top: 30px;
+}
+
+.header__step {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.header__wall {
+    width: 1px;
+    margin: 0 17px;
+    background-color: rgb(0, 0, 0);
+}
+
+.header__position {
+    margin: 0;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.header__indications {
+    display: flex;
+    margin-top: 20px;
+}
+
+.header__indication {
+    margin-right: 15px;
+    width: 354px;
+    height: 4px;
+    background-color: #d9d9d9;
+}
+
+.header__indication:last-of-type {
+    margin-right: 0;
+}
+
+.header__card {
+    position: relative;
+    width: 370px;
+    border: 1px solid #d9d9d9;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.header__disign {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    width: 224px;
+    line-height: 1.41em;
+}
+
+.header__price {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+.header__select {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.header__link {
+    position: relative;
+    text-decoration: none;
+    color: #262626;
+}
+
+.header__select::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 1px;
+    background: #262626;
+    position: absolute;
+    top: 17px;
+    left: 65px;
+    margin-top: 4px;
+    transform: rotate(-45deg);
+}
+
+.header__select::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 1px;
+    background: #262626;
+    position: absolute;
+    top: 12px;
+    left: 65px;
+    margin-top: 4px;
+    transform: rotate(45deg);
+}
+
+.header__img {
+    position: absolute;
+    background-image: url('https://www.sberbank.ru/portalserver/static/widgets/%5BBBHOST%5D/DebitOrder/images/fd92dbc4fd926f932df58e5064de1117.png');
+    width: 90px;
+    height: 86px;
+    background-size: auto 86px;
+    background-repeat: no-repeat;
+    top: 30px;
+    right: 0;
+}
