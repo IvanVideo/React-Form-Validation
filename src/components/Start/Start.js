@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 function Start() {
   const navigate = useNavigate();
-
   const handleButtonClick = () => {
     navigate('/step1');
   }

@@ -56,6 +56,13 @@
     background-color: #d9d9d9;
 }
 
+.header__indication-green {
+    margin-right: 15px;
+    width: 354px;
+    height: 4px;
+    background-color: #2dc968;
+}
+
 .header__indication:last-of-type {
     margin-right: 0;
 }
