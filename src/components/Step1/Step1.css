@@ -1,19 +1,21 @@
 .step1__conteiner {
     width: 1200px;
     margin: 0 auto;
+    font-family: 'Southbank Sans',OpenSans,Helvetica;
 }
 
 .step1__sistems {
     display: flex;
     align-items: center;
+    margin-top: 40px;
 }
 
 .step1__sistem {
     margin: 0;
-    font-family: 'Southbank Sans',OpenSans,Helvetica;
     font-weight: 400;
     font-size: 14px;
     line-height: 40px;
+    margin-right: 20px;
 }
 
 .step1__visa {
@@ -45,14 +47,135 @@
 
 .step1__currency {
     display: flex;
+    align-items: center;
+    margin-left: 170px;
 }
 
 .step1__ruble {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    margin-left: 20px;
     border: 1px solid #118c27;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.step1__titile {
+    margin: 50px 0 34px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.3em;
+}
+
+.step1__lable {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 7px;
+    line-height: 1.3em;
+}
+
+.step1__items {
+    display: flex;
+}
+
+.step1__item {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+    margin-bottom: 30px;
+}
+
+.step1__input {
+    width: 370px;
+    height: 50px;
+    font-size: 17px;
+    padding: 14px 20px 12px;
+    border: 1px solid #d9d9d9;
+    box-sizing: border-box;
+    font-weight: 400;
+    line-height: 1.3em;
+}
+
+.step1__input:hover {
+    border: 1px solid #aeaeae;
+}
+
+.step1__input:focus {
+    outline: none;
+    border: 2px solid #38c86c;
+}
+
+.step1__select {
+    padding: 14px 43px 12px 20px;
+    width: 770px;
+    height: 50px;
+    border: 1px solid #d9d9d9;
+}
+
+.step1__documents {
+    padding-right: 0;
+}
+
+.step1__select:focus {
+    outline: none;
+    border: 2px solid #38c86c;
+}
+
+.step1__passport {
+    width: 170px;
+}
+
+.step1__box {
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.step1__snoska {
+    margin: 0;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+    color: grey;
+}
+
+.step1__button {
+    width: 300px;
+    height: 50px;
+    background-color: #262626;
+    color: #fff;
+    font-size: 17px;
+    line-height: 1.18em;
+    font-weight: 400;
+    padding: 14px 65px 15px;
+    box-sizing: border-box;
+    border: none;
+    margin-left: 45px;
+}
+
+.step1__button:hover {
+    cursor: pointer;
+    background-color: #38c86c;
+}
+
+.step1__middlename {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step1__checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 0 11px 0 0;
+}
+
+.step1__box-middlename {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
 }
