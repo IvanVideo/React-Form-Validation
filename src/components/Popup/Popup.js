@@ -1,14 +1,15 @@
 import './Popup.css';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Popup() {
     const [value, setValue] = React.useState('');
     const [disabled, setDisabled] = React.useState(true);
-    const [verification, setVerification] = React.useState(false);
+    const [verification, setVerification] = React.useState(true);
     const [time, setTime] = React.useState(20);
     const navigate = useNavigate();
+
 
     const startTimer = () => {
         console.log('111')

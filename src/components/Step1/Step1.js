@@ -1,8 +1,19 @@
 import './Step1.css';
 import Header from '../Header/Header';
 import Popup from '../Popup/Popup';
+import { useRef } from 'react';
+import React, { useEffect } from 'react';
 
 function Step1() {
+  const [statusSistem, setStatusSistem] = React.useState(true);
+
+  const handleSubmitForm = () => {
+
+  }
+
+  const handleActiveSistem = () => {
+    setStatusSistem(!statusSistem)
+  }
 
   return (
     <div>
@@ -10,15 +21,15 @@ function Step1() {
       <div className='step1__conteiner'>
         <div className='step1__sistems'>
           <p className='step1__sistem'>Платежная система</p>
-          <div className='step1__visa' />
-          <div className='step1__master' />
-          <div className='step1__mir' />
+          <div className={statusSistem ? 'step1__visa' : 'step1__visa step1__active-sistem'} onClick={handleActiveSistem} />
+          <div className={statusSistem ? 'step1__master' : 'step1__master step1__active-sistem'} onClick={handleActiveSistem} />
+          <div className={statusSistem ? 'step1__mir' : 'step1__mir step1__active-sistem'} onClick={handleActiveSistem} />
           <div className='step1__currency'>
             <p>Валюта карты</p>
             <div className='step1__ruble'>₽</div>
           </div>
         </div>
-        <form className='step1__form'>
+        <form className='step1__form' onSubmit={handleSubmitForm}>
           <p className='step1__titile'>Личные данные</p>
           <div className='step1__items'>
             <div className='step1__item'>
