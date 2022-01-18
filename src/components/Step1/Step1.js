@@ -1,5 +1,6 @@
 import './Step1.css';
 import Header from '../Header/Header';
+import Popup from '../Popup/Popup';
 
 function Step1() {
 
@@ -135,6 +136,7 @@ function Step1() {
           </div>
         </form>
       </div>
+      <Popup />
     </div>
   );
 }
