@@ -3,10 +3,17 @@ import Header from '../Header/Header';
 import Popup from '../Popup/Popup';
 import { useRef } from 'react';
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+// import { actionCreators, State } from '../../store';
 
 function Step1() {
   const [statusSistem, setStatusSistem] = React.useState(true);
 
+  const dispatch = useDispatch();
+  // const { changeStatusPopup } = bindActionCreators(actionCreators, dispatch);
+  const popup = useSelector(state => state.popup);
+  console.log(popup, '111')
   const handleSubmitForm = () => {
 
   }
