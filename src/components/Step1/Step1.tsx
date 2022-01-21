@@ -8,18 +8,14 @@ import { bindActionCreators } from 'redux';
 // import { actionCreators, State } from '../../store';
 
 function Step1() {
-  const [statusSistem, setStatusSistem] = React.useState(true);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const { changeStatusPopup } = bindActionCreators(actionCreators, dispatch);
-  const popup = useSelector(state => state.popup);
-  console.log(popup, '111')
-  const handleSubmitForm = () => {
-
-  }
-
-  const handleActiveSistem = () => {
-    setStatusSistem(!statusSistem)
+  // const popup = useSelector(state => state.popup);
+  // console.log(popup, '111')
+  const handleSubmitForm = (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
+    console.log('11')
   }
 
   return (
@@ -28,9 +24,9 @@ function Step1() {
       <div className='step1__conteiner'>
         <div className='step1__sistems'>
           <p className='step1__sistem'>Платежная система</p>
-          <div className={statusSistem ? 'step1__visa' : 'step1__visa step1__active-sistem'} onClick={handleActiveSistem} />
-          <div className={statusSistem ? 'step1__master' : 'step1__master step1__active-sistem'} onClick={handleActiveSistem} />
-          <div className={statusSistem ? 'step1__mir' : 'step1__mir step1__active-sistem'} onClick={handleActiveSistem} />
+          <div className='step1__visa'/>
+          <div className='step1__master'/>
+          <div className='step1__mir'/>
           <div className='step1__currency'>
             <p>Валюта карты</p>
             <div className='step1__ruble'>₽</div>
