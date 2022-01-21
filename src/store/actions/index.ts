@@ -6,4 +6,10 @@ interface PopupValue {
     payload: boolean
 }
 
+interface TimerValue {
+    type: ActionTypes.TIMER
+    payload: number
+}
+
 export type ActionPopup = PopupValue 
+export type ActionTimer = TimerValue 

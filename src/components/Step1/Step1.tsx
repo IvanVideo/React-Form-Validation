@@ -5,17 +5,18 @@ import { useRef } from 'react';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { actionCreators, State } from '../../store';
+import { actionCreators, State } from '../../store';
 
 function Step1() {
 
-  // const dispatch = useDispatch();
-  // const { changeStatusPopup } = bindActionCreators(actionCreators, dispatch);
-  // const popup = useSelector(state => state.popup);
-  // console.log(popup, '111')
+  const dispatch = useDispatch();
+  const { changeStatusPopup } = bindActionCreators(actionCreators, dispatch);
+  const { timer } = bindActionCreators(actionCreators, dispatch);
+  const popup = useSelector((state: State) => state.popup);
+
   const handleSubmitForm = (e: { preventDefault: () => void; }) => {
     e.preventDefault()
-    console.log('11')
+    changeStatusPopup(popup)
   }
 
   return (
@@ -24,9 +25,9 @@ function Step1() {
       <div className='step1__conteiner'>
         <div className='step1__sistems'>
           <p className='step1__sistem'>Платежная система</p>
-          <div className='step1__visa'/>
-          <div className='step1__master'/>
-          <div className='step1__mir'/>
+          <div className='step1__visa' />
+          <div className='step1__master' />
+          <div className='step1__mir' />
           <div className='step1__currency'>
             <p>Валюта карты</p>
             <div className='step1__ruble'>₽</div>
