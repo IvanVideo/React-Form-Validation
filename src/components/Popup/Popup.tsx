@@ -1,11 +1,12 @@
 import './Popup.css';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { actionCreators, State } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
 
 function Popup() {
+    const [disabled, setDisabled] = React.useState(true)
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const popupValue = useSelector((state: State) => state.popup);
@@ -13,10 +14,11 @@ function Popup() {
     const time = useSelector((state: State) => state.timer);
     const popup = useSelector((state: State) => state.popup);
 
-    useEffect(() => {
-
+    const startTimer = () => {
+        console.log(popup, '111')
+        setDisabled(true)
         if (popup) {
-            console.log(popup, '111')
+            const btn = document.querySelector('.popup__button');
             let seconds = 20;
 
             let getTimer = setInterval(function () {
@@ -29,11 +31,18 @@ function Popup() {
                 if (seconds <= 0) {
                     clearInterval(time);
                     timer(0)
+                    setDisabled(false)
                 }
             }, 1000);
         } else {
             console.log(popup, '222')
+            return
         }
+    }
+
+    useEffect(() => {
+        startTimer()
+
     }, [popup])
 
     return (
@@ -47,8 +56,8 @@ function Popup() {
                     <span></span>
                 </div>
                 <div className='popup__button-box'>
-                    <button id='btn' className='popup__button' >Получить новый код</button>
-                    <p id='timer'>через 00:{time}</p>
+                    <button id='btn' className='popup__button' onClick={startTimer} disabled={disabled} >Получить новый код</button>
+                    <p id='timer'>через 00:{time<10?`0${time}`:time}</p>
                 </div>
                 <p>Назад</p>
                 <p className='popup__sms'>*смс "1111"</p>
