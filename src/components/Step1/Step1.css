@@ -190,3 +190,10 @@
     line-height: 20px;
     font-weight: 400;
 }
+
+.step1__error {
+    max-width: 170px;
+    font-size: 14px;
+    color: #FF3055;
+    margin-top: 10px;
+}

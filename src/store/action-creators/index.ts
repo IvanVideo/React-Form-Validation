@@ -2,6 +2,7 @@ import { ActionTypes } from "../types";
 import { Dispatch } from "redux";
 import { ActionPopup } from "../actions/index";
 import { ActionTimer } from "../actions/index";
+import { ActionUserInfo} from "../actions/index";
 
 export const changeStatusPopup  = (amount: boolean) => {
     return (dispatch: Dispatch<ActionPopup>) => {
@@ -16,6 +17,15 @@ export const timer  = (amount: number) => {
     return (dispatch: Dispatch<ActionTimer>) => {
         dispatch({
             type: ActionTypes.TIMER,
+            payload: amount
+        })
+    }
+}
+
+export const userInfo  = (amount: any) => {
+    return (dispatch: Dispatch<ActionUserInfo>) => {
+        dispatch({
+            type: ActionTypes.USERINFO,
             payload: amount
         })
     }

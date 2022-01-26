@@ -1,23 +1,56 @@
 import './Step1.css';
 import Header from '../Header/Header';
 import Popup from '../Popup/Popup';
-import { useRef } from 'react';
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators, State } from '../../store';
 
 function Step1() {
-
+  const [values, setValues] = React.useState({});
+  const [errors, setErrors] = React.useState<any>({});
+  const [isValid, setIsValid] = React.useState(false);
   const dispatch = useDispatch();
   const { changeStatusPopup } = bindActionCreators(actionCreators, dispatch);
   const { timer } = bindActionCreators(actionCreators, dispatch);
+  const { userInfo } = bindActionCreators(actionCreators, dispatch);
   const popup = useSelector((state: State) => state.popup);
+  const userInfoData = useSelector((state: State) => state.userInfo);
+
+
+  const handleChange = (event: { target: any; }) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+    setValues({ ...values, [name]: value });
+    setErrors({ ...errors, [name]: target.validationMessage });
+    setIsValid(target.closest("form").checkValidity());
+  };
 
   const handleSubmitForm = (e: { preventDefault: () => void; }) => {
     e.preventDefault()
     changeStatusPopup(popup)
+    userInfo(values)
+    // console.log(values, 'значения')
   }
+
+  const disableInput = () => {
+    const input = document.getElementById('middleName');
+  }
+
+  const resetForm = useCallback(
+    (newValues = {}, newErrors = {}, newIsValid = false) => {
+      setValues(newValues);
+      setErrors(newErrors);
+      setIsValid(newIsValid);
+    },
+    [setValues, setErrors, setIsValid]
+  );
+
+  useEffect(() => {
+    console.log(errors, '2222')
+    resetForm();
+  }, [resetForm]);
 
   return (
     <div>
@@ -41,30 +74,43 @@ function Step1() {
               <input
                 className='step1__input'
                 placeholder='Иванов'
+                type='text'
+                name="surname"
+                onChange={handleChange}
+                required
               />
-              <span className='step1__error'></span>
+              <span className='step1__error'>{errors.surname}</span>
             </div>
             <div className='step1__item'>
               <label className='step1__lable'>Имя*</label>
               <input
                 className='step1__input'
                 placeholder='Иван'
+                type='text'
+                name="name"
+                onChange={handleChange}
+                required
               />
-              <span className='step1__error'></span>
+              <span className='step1__error'>{errors.name}</span>
             </div>
             <div className='step1__item'>
               <div className='step1__middlename'>
                 <label className='step1__lable'>Отчество</label>
                 <div className='step1__box-middlename'>
-                  <input className='step1__checkbox' type='checkbox' id='checkbox'></input>
+                  <input className='step1__checkbox' type='checkbox' id='checkbox' onChange={disableInput}></input>
                   <label>нет отчества</label>
                 </div>
               </div>
               <input
                 className='step1__input'
                 placeholder='Иванович'
+                type='text'
+                name="middleName"
+                id='middleName'
+                onChange={handleChange}
+                disabled={false}
               />
-              <span className='step1__error'></span>
+              <span className='step1__error'>{errors.middlename}</span>
             </div>
           </div>
           <div className='step1__items'>
@@ -73,8 +119,11 @@ function Step1() {
               <input
                 className='step1__input'
                 placeholder='IVAN IVANOV'
+                type='text'
+                onChange={handleChange}
+                name="cardName"
               />
-              <span className='step1__error'></span>
+              <span className='step1__error'>{errors.cardname}</span>
             </div>
             <div className='step1__item'>
               <label className='step1__lable'>Дата рождения*</label>
@@ -82,9 +131,10 @@ function Step1() {
                 className='step1__input'
                 type='text'
                 placeholder='01.01.1990'
+                name="dateOfBorn"
                 onFocus={(e) => (e.target.type = "date")}
               />
-              <span className='step1__error'></span>
+              <span className='step1__error'>{errors.date}</span>
             </div>
           </div>
           <div className='step1__items'>
@@ -93,8 +143,11 @@ function Step1() {
               <input
                 className='step1__input'
                 placeholder='example@example.com'
+                type="email"
+                name="email"
+                onChange={handleChange}
               />
-              <span className='step1__error'></span>
+              <span className='step1__error'>{errors.email}</span>
             </div>
             <div className='step1__item'>
               <label className='step1__lable'>Мобильный телефон*</label>
@@ -102,8 +155,12 @@ function Step1() {
                 className='step1__input'
                 type='text'
                 placeholder='+7 (xxx) xxx-xx-xx'
+                pattern="[0-9]*"
+                name="mobile"
+                required
+                onChange={handleChange}
               />
-              <span className='step1__error'></span>
+              <span className='step1__error'>{errors.mobile}</span>
             </div>
           </div>
           <p className='step1__titile'>Основной документ</p>
@@ -123,26 +180,38 @@ function Step1() {
               <label className='step1__lable'>Серия*</label>
               <input
                 className='step1__input step1__passport'
-                placeholder='Иванов'
+                placeholder='xxxx'
+                type='text'
+                name="series"
+                pattern="[0-9]*"
+                required
+                onChange={handleChange}
               />
-              <span className='step1__error'></span>
+              <span className='step1__error'>{errors.series}</span>
             </div>
             <div className='step1__item'>
               <label className='step1__lable'>Номер*</label>
               <input
                 className='step1__input step1__passport'
-                placeholder='Иван'
+                placeholder='xxxxxx'
+                name="number"
+                pattern="[0-9]*"
+                required
+                onChange={handleChange}
               />
-              <span className='step1__error'></span>
+              <span className='step1__error'>{errors.number}</span>
             </div>
             <div className='step1__item'>
               <label className='step1__lable'>Дата выдачи*</label>
               <input
                 className='step1__input'
                 type='text'
+                name="dateOfIssue"
                 placeholder='01.01.1990'
+                required
+                onFocus={(e) => (e.target.type = "date")}
+                onChange={handleChange}
               />
-              <span className='step1__error'></span>
             </div>
           </div>
           <div className='step1__box'>
