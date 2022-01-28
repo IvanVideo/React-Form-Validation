@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 function Header() {
     const [positionValue, setPositionValue] = React.useState(true);
+    const [name, setName] = React.useState('');
     const [step, setStep] = React.useState('');
 
     const url = window.location.pathname;
@@ -12,8 +13,10 @@ function Header() {
     useEffect(() => {
         if (url === '/step1') {
             setPositionValue(false)
+            setName('Личные данные')
             setStep(1)
         } else {
+            setName('Проверка личных данных')
             setStep(2)
         }
     }, [url])
@@ -27,7 +30,7 @@ function Header() {
                     <div className='header__box'>
                         <p className='header__step'>Шаг {step} из 2</p>
                         <div className='header__wall' />
-                        <p className='header__position'>Личные данные</p>
+                        <p className='header__position'>{name}</p>
                     </div>
                     <div className='header__indications'>
                         <div className={positionValue ? 'header__indication' : 'header__indication-green'} />

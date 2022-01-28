@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { actionCreators, State } from '../../store';
 
 function Step1() {
-  const [values, setValues] = React.useState({});
+  const [values, setValues] = React.useState<any>({});
   const [errors, setErrors] = React.useState<any>({});
   const [isValid, setIsValid] = React.useState(false);
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ function Step1() {
   const popup = useSelector((state: State) => state.popup);
   const userInfoData = useSelector((state: State) => state.userInfo);
 
+  // console.log(values, '01010')
 
   const handleChange = (event: { target: any; }) => {
     const target = event.target;
@@ -31,7 +32,6 @@ function Step1() {
     e.preventDefault()
     changeStatusPopup(popup)
     userInfo(values)
-    // console.log(values, 'значения')
   }
 
   const disableInput = () => {
@@ -48,9 +48,11 @@ function Step1() {
   );
 
   useEffect(() => {
-    console.log(errors, '2222')
+    if(values.surname || values.name){
+      console.log(values.surname, values.name, '01010')
+    }
     resetForm();
-  }, [resetForm]);
+  }, [resetForm, values.surname]);
 
   return (
     <div>
@@ -132,6 +134,7 @@ function Step1() {
                 type='text'
                 placeholder='01.01.1990'
                 name="dateOfBorn"
+                required
                 onFocus={(e) => (e.target.type = "date")}
               />
               <span className='step1__error'>{errors.date}</span>
@@ -155,7 +158,7 @@ function Step1() {
                 className='step1__input'
                 type='text'
                 placeholder='+7 (xxx) xxx-xx-xx'
-                pattern="[0-9]*"
+                pattern="^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$"
                 name="mobile"
                 required
                 onChange={handleChange}
@@ -194,7 +197,6 @@ function Step1() {
               <input
                 className='step1__input step1__passport'
                 placeholder='xxxxxx'
-                name="number"
                 pattern="[0-9]*"
                 required
                 onChange={handleChange}
