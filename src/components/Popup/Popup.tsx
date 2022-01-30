@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { actionCreators, State } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Popup() {
     const [disabled, setDisabled] = React.useState(true);
@@ -17,7 +18,6 @@ function Popup() {
     const popup = useSelector((state: State) => state.popup);
 
     const startTimer = () => {
-
         setDisabled(true)
         if (popup) {
             const btn = document.querySelector('.popup__button');
@@ -36,14 +36,21 @@ function Popup() {
                     setDisabled(false)
                 }
             }, 1000);
+            return
         } else {
             return
         }
     }
 
+    const handleClosePopup = () => {
+        changeStatusPopup(popup)
+        // clearInterval(time);
+    }
+
     useEffect(() => {
         startTimer()
         if (inputValue == '1111') {
+            changeStatusPopup(popup)
             navigate('/step2');
         }
     }, [popup, inputValue])
@@ -59,10 +66,10 @@ function Popup() {
                     <span></span>
                 </div>
                 <div className='popup__button-box'>
-                    <button id='btn' className='popup__button' onClick={startTimer} disabled={disabled} >Получить новый код</button>
+                    <button id='btn' className={disabled ? 'popup__button_disabled' : 'popup__button'} onClick={startTimer} disabled={disabled} >Получить новый код</button>
                     <p id='timer'>через 00:{time < 10 ? `0${time}` : time}</p>
                 </div>
-                <p>Назад</p>
+                <Link className='popup__link' to='#' onClick={handleClosePopup}><p>Назад</p></Link>
                 <p className='popup__sms'>*смс "1111"</p>
             </div>
         </div>

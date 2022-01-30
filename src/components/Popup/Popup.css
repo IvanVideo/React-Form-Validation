@@ -85,3 +85,17 @@
     bottom: 0;
     right: 20px;
 }
+
+.popup__link {
+    text-decoration: none;
+    color: #262626;
+}
+
+.popup__button_disabled {
+    width: 290px;
+    height: 50px;
+    margin-right: 10px;
+    background-color: gray;
+    border: none;
+    color: white;
+}

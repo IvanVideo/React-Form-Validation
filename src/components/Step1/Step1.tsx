@@ -17,7 +17,7 @@ function Step1() {
   const popup = useSelector((state: State) => state.popup);
   const userInfoData = useSelector((state: State) => state.userInfo);
 
-  // console.log(values, '01010')
+  console.log(userInfoData, 'инфа юзера')
 
   const handleChange = (event: { target: any; }) => {
     const target = event.target;
@@ -75,7 +75,7 @@ function Step1() {
               <label className='step1__lable'>Фамилия*</label>
               <input
                 className='step1__input'
-                placeholder='Иванов'
+                placeholder={userInfoData.name}
                 type='text'
                 name="surname"
                 onChange={handleChange}
@@ -87,7 +87,7 @@ function Step1() {
               <label className='step1__lable'>Имя*</label>
               <input
                 className='step1__input'
-                placeholder='Иван'
+                placeholder=''
                 type='text'
                 name="name"
                 onChange={handleChange}
@@ -105,7 +105,7 @@ function Step1() {
               </div>
               <input
                 className='step1__input'
-                placeholder='Иванович'
+                placeholder=''
                 type='text'
                 name="middleName"
                 id='middleName'
@@ -198,6 +198,7 @@ function Step1() {
                 className='step1__input step1__passport'
                 placeholder='xxxxxx'
                 pattern="[0-9]*"
+                name="number"
                 required
                 onChange={handleChange}
               />
