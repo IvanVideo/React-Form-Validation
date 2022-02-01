@@ -1,11 +1,13 @@
+ссылка на работу https://ivanvideo.github.io/React-Form-Validation/
+
 # Работа с формой
-## Для работы была выбрана форма для заполнения с сайта Сбербанка. Данную форму можно найти в разделе оформления дебетовой карты онлайн.
+## Для работы была выбрана форма заполнения с сайта Сбербанка. Данную форму можно найти в разделе оформления дебетовой карты онлайн.
 
 
 
 ## Screenshots
 ###### Стартовая страница
-![](https://sun9-22.userapi.com/impg/-bF-gL8a-6jfnKeIqyQQVX3vCTNUtr4WHUD3Kg/5o5V1VusayU.jpg?size=500x500&quality=96&sign=b283ff84b0d72691a52cc04ccb10dc93&type=album)
+![](https://sun9-72.userapi.com/impg/SFIZaarVzFKgyprB6BASiHpht-P3GigRH7N0hw/8QW9k7eC1LA.jpg?size=1364x768&quality=95&sign=aafd9f54e5da90157ea2b7c6da9b6607&type=album)
 
 ###### Форма
 ![](https://sun9-57.userapi.com/impg/qknNJUY6tmJAOA8dXuxIJgyFkN_inAVLe7XMag/gxH8GQnetUE.jpg?size=1385x1212&quality=95&sign=fdb1a7258ec491a8d9cdf49535cbdf3d&type=album)
