@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/React-Form-Validation/static/css/main.c0ceed05.chunk.css",
+    "main.js": "/React-Form-Validation/static/js/main.febc0d69.chunk.js",
+    "main.js.map": "/React-Form-Validation/static/js/main.febc0d69.chunk.js.map",
+    "runtime-main.js": "/React-Form-Validation/static/js/runtime-main.d5682301.js",
+    "runtime-main.js.map": "/React-Form-Validation/static/js/runtime-main.d5682301.js.map",
+    "static/js/2.9f94230f.chunk.js": "/React-Form-Validation/static/js/2.9f94230f.chunk.js",
+    "static/js/2.9f94230f.chunk.js.map": "/React-Form-Validation/static/js/2.9f94230f.chunk.js.map",
+    "static/js/3.3404a8be.chunk.js": "/React-Form-Validation/static/js/3.3404a8be.chunk.js",
+    "static/js/3.3404a8be.chunk.js.map": "/React-Form-Validation/static/js/3.3404a8be.chunk.js.map",
+    "index.html": "/React-Form-Validation/index.html",
+    "static/css/main.c0ceed05.chunk.css.map": "/React-Form-Validation/static/css/main.c0ceed05.chunk.css.map",
+    "static/js/2.9f94230f.chunk.js.LICENSE.txt": "/React-Form-Validation/static/js/2.9f94230f.chunk.js.LICENSE.txt",
+    "static/media/fonts.css": "/React-Form-Validation/static/media/SBSansUI-Light.3b52e748.otf",
+    "static/media/Sber_logo.0cf565e3.png": "/React-Form-Validation/static/media/Sber_logo.0cf565e3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d5682301.js",
+    "static/js/2.9f94230f.chunk.js",
+    "static/css/main.c0ceed05.chunk.css",
+    "static/js/main.febc0d69.chunk.js"
+  ]
+}
