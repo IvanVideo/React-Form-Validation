@@ -10,7 +10,7 @@ function App() {
   return (
       <>
         <Routes>
-          <Route path='/' element={<Start />} />
+          <Route path='/React-Form-Validation' element={<Start />} />
           <Route path='/step1' element={<Step1 />} />
           <Route path='/step2' element={<Step2 />} />
           <Route path='/result' element={<Result />} />
