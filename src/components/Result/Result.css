@@ -1,0 +1,24 @@
+.result {
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Southbank Sans',OpenSans,Helvetica;
+}
+
+.result__title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.result__subtitle {
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.result__logo {
+    margin-top: 300px;
+    width: 500px;
+}

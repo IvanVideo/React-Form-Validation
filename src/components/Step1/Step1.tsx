@@ -9,12 +9,12 @@ import { actionCreators, State } from '../../store';
 function Step1() {
   const [values, setValues] = React.useState<any>({});
   const [errors, setErrors] = React.useState<any>({});
+  const [disabled, setDisabled] = React.useState<any>(false);
   const [cardSurName, setCardSurName] = React.useState<any>('');
   const [cardName, setCardName] = React.useState<any>('');
   const [isValid, setIsValid] = React.useState(false);
   const dispatch = useDispatch();
   const { changeStatusPopup } = bindActionCreators(actionCreators, dispatch);
-  const { timer } = bindActionCreators(actionCreators, dispatch);
   const { userInfo } = bindActionCreators(actionCreators, dispatch);
   const popup = useSelector((state: State) => state.popup);
   const userInfoData = useSelector((state: State) => state.userInfo);
@@ -54,11 +54,11 @@ function Step1() {
     console.log(values)
     e.preventDefault()
     changeStatusPopup(popup)
-    userInfo({...values, fio: cardInfo, name: name.value, surName: surName.value})
+    userInfo({ ...values, fio: cardInfo, name: name.value, surName: surName.value })
   }
 
   const disableInput = () => {
-    const input = document.getElementById('middleName');
+    setDisabled(!disabled)
   }
 
   const resetForm = useCallback(
@@ -162,12 +162,12 @@ function Step1() {
               </div>
               <input
                 className='step1__input'
-                placeholder='Иванович'
+                placeholder={disabled ? '' : 'Иванович'}
                 type='text'
                 name="middleName"
                 id='middleName'
                 onChange={handleChange}
-                disabled={false}
+                disabled={disabled}
               />
               <span className='step1__error'>{errors.middlename}</span>
             </div>
