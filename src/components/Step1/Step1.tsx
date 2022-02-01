@@ -9,6 +9,8 @@ import { actionCreators, State } from '../../store';
 function Step1() {
   const [values, setValues] = React.useState<any>({});
   const [errors, setErrors] = React.useState<any>({});
+  const [cardSurName, setCardSurName] = React.useState<any>('');
+  const [cardName, setCardName] = React.useState<any>('');
   const [isValid, setIsValid] = React.useState(false);
   const dispatch = useDispatch();
   const { changeStatusPopup } = bindActionCreators(actionCreators, dispatch);
@@ -17,7 +19,23 @@ function Step1() {
   const popup = useSelector((state: State) => state.popup);
   const userInfoData = useSelector((state: State) => state.userInfo);
 
-  console.log(userInfoData, 'инфа юзера')
+  const converter: any = {
+    'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+    'е': 'e', 'ё': 'e', 'ж': 'zh', 'з': 'z', 'и': 'i',
+    'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+    'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+    'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch',
+    'ш': 'sh', 'щ': 'sch', 'ь': '', 'ы': 'y', 'ъ': '',
+    'э': 'e', 'ю': 'yu', 'я': 'ya',
+
+    'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D',
+    'Е': 'E', 'Ё': 'E', 'Ж': 'Zh', 'З': 'Z', 'И': 'I',
+    'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N',
+    'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T',
+    'У': 'U', 'Ф': 'F', 'Х': 'H', 'Ц': 'C', 'Ч': 'Ch',
+    'Ш': 'Sh', 'Щ': 'Sch', 'Ь': '', 'Ы': 'Y', 'Ъ': '',
+    'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya'
+  };
 
   const handleChange = (event: { target: any; }) => {
     const target = event.target;
@@ -29,9 +47,14 @@ function Step1() {
   };
 
   const handleSubmitForm = (e: { preventDefault: () => void; }) => {
+    const cardNick: any = document.getElementById('cardName')
+    const name: any = document.getElementById('name')
+    const surName: any = document.getElementById('surName')
+    let cardInfo = cardNick.value
+    console.log(values)
     e.preventDefault()
     changeStatusPopup(popup)
-    userInfo(values)
+    userInfo({...values, fio: cardInfo, name: name.value, surName: surName.value})
   }
 
   const disableInput = () => {
@@ -48,11 +71,43 @@ function Step1() {
   );
 
   useEffect(() => {
-    if(values.surname || values.name){
-      console.log(values.surname, values.name, '01010')
+    if (values.surname) {
+      translitSurName(values.surname)
+    }
+    if (values.name) {
+      translitName(values.name)
     }
     resetForm();
-  }, [resetForm, values.surname]);
+  }, [resetForm, values.surname, values.name]);
+
+  function translitSurName(name: any) {
+    let answer = '';
+    for (let i = 0; i < name.length; ++i) {
+      if (converter[name[i]] == undefined) {
+        answer += name[i].toUpperCase();
+      } else {
+        answer += converter[name[i]].toUpperCase();
+      }
+    }
+    setCardSurName(answer);
+  }
+
+  function translitName(name: any) {
+    let answer = '';
+    for (let i = 0; i < name.length; ++i) {
+      if (converter[name[i]] == undefined) {
+        answer += name[i].toUpperCase();
+      } else {
+        answer += converter[name[i]].toUpperCase();
+      }
+    }
+    setCardName(answer);
+  }
+
+  useEffect(() => {
+    const cardNick: any = document.getElementById('cardName')
+    cardNick.value = `${cardSurName}  ${cardName}`
+  }, [cardSurName, cardName]);
 
   return (
     <div>
@@ -75,8 +130,9 @@ function Step1() {
               <label className='step1__lable'>Фамилия*</label>
               <input
                 className='step1__input'
-                placeholder={userInfoData.name}
+                placeholder='Иванов'
                 type='text'
+                id='surName'
                 name="surname"
                 onChange={handleChange}
                 required
@@ -87,9 +143,10 @@ function Step1() {
               <label className='step1__lable'>Имя*</label>
               <input
                 className='step1__input'
-                placeholder=''
+                placeholder='Иван'
                 type='text'
                 name="name"
+                id='name'
                 onChange={handleChange}
                 required
               />
@@ -105,7 +162,7 @@ function Step1() {
               </div>
               <input
                 className='step1__input'
-                placeholder=''
+                placeholder='Иванович'
                 type='text'
                 name="middleName"
                 id='middleName'
@@ -120,6 +177,7 @@ function Step1() {
               <label className='step1__lable'>Имя и фамилия на карте*</label>
               <input
                 className='step1__input'
+                id='cardName'
                 placeholder='IVAN IVANOV'
                 type='text'
                 onChange={handleChange}
@@ -136,6 +194,7 @@ function Step1() {
                 name="dateOfBorn"
                 required
                 onFocus={(e) => (e.target.type = "date")}
+                onChange={handleChange}
               />
               <span className='step1__error'>{errors.date}</span>
             </div>

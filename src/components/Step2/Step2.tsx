@@ -19,7 +19,7 @@ function Step2() {
             <div className='step2__box'>
               <div className='step2__item'>
                 <label className='step2__lable'>Фамилия</label>
-                <p className='step2__response'>{userInfoData.surname}</p>
+                <p className='step2__response'>{userInfoData.surName}</p>
               </div>
               <div className='step2__item'>
                 <label className='step2__lable'>Имя</label>
@@ -33,7 +33,7 @@ function Step2() {
             <div className='step2__box'>
               <div className='step2__item'>
                 <label className='step2__lable'>Имя и фамилия на карте</label>
-                <p>IVANOV IVAN</p>
+                <p className='step2__response'>{userInfoData.fio}</p>
               </div>
               <div className='step2__item'>
                 <label className='step2__lable'>Дата рождения</label>
